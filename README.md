@@ -1,16 +1,17 @@
-# irohaコンサルティング 自己紹介サイト
+# irohaコンサルティング
 
-秋元祐介のサービス・実績・SNS・お問い合わせページ。ビルド不要の静的HTMLです。
+https://irohacs.com/ の公開サイト。GitHub Pagesはmainブランチのルートを配信します。
 
-## GitHub Pages
+- 総合TOP：index.html
+- 動画制作LP：video/index.html
+- プロフィール：profile.html
+- 問い合わせ：contact.html（FormSubmit → info@irohacs.com）
+- プライバシー・運営者・利用案内：privacy.html、business.html、terms.html
+- サービスと関連情報：data/catalog.js、service.html、resources.html
 
-Settings → Pages → Deploy from a branch → main / (root) → Save。
+サービスの追加・修正はCodexで行います。編集用データやローカル管理画面は公開しません。
+/sales/、/cost/、/video/assets/ は既存のまま保持しています。
 
-フォーム送信先はinfoのみです。FormSubmitの有効化と新しい公開URLでの受信確認を行ってください。
+問い合わせはローカルからの送信・メール受信を確認済み。本番フォームの有効化と送信確認は公開後に行います。テスト通知はGmailで迷惑メールに分類されたため、受信側で確認が必要です。GA4は本番ドメインのみ有効、決済は未接続です。
 
-## 編集
-
-- index.html：トップページ
-- privacy.html：プライバシーポリシー
-
-本番のドメインを変更した場合は、index.html内のform-source-urlの初期値を実際のURLに変更してください。通常の送信時には実際のページURLが自動設定されます。
+2026年10月28日の更新前の版：backup/before-service-hub-20261028。
