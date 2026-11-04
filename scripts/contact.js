@@ -3,7 +3,16 @@
 const form=document.getElementById('inquiry');if(!form)return;
 const source=document.getElementById('form-source-url');if(location.protocol==='https:')source.value=location.href.split(/[?#]/)[0];
 const next=form.querySelector('[name="_next"]');if(location.hostname==='irohacs.com'||location.hostname==='www.irohacs.com')next.value=location.origin+'/thanks.html';else if(location.hostname==='127.0.0.1'||location.hostname==='localhost')next.remove();
-const id=new URLSearchParams(location.search).get('service');const service=(window.IROHA_CATALOG?.services||[]).find(s=>s.id===id&&s.status==='published');const field=form.querySelector('[name="message"]');if(service&&!field.value)field.value=service.name+'について相談したいです。\n';
+const params=new URLSearchParams(location.search);const id=params.get('service');const service=(window.IROHA_CATALOG?.services||[]).find(s=>s.id===id&&s.status==='published');const field=form.querySelector('[name="message"]');if(service&&!field.value){
+ const videoIntents=new Map([
+  ['trial','1本お試しについて相談したいです。'],
+  ['five','基本5本パックについて相談したいです。'],
+  ['ten','全機能10本パックについて相談したいです。'],
+  ['line-demo','LINE受付デモのような動画について相談したいです。']
+ ]);
+ const detail=service.id==='service-video'?videoIntents.get(params.get('video')):null;
+ field.value=(detail||service.name+'について相談したいです。')+'\n';
+}
 if(service){const topic=form.elements.topic;const match=[...topic.options].find(o=>o.value===service.name);if(match)topic.value=match.value;}
 const review=document.getElementById('contact-review'),back=document.getElementById('review-back'),send=document.getElementById('review-send'),status=document.getElementById('form-status');let confirmed=false;
 form.addEventListener('submit',event=>{
