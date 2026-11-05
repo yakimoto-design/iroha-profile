@@ -12,3 +12,17 @@
 [hidden]{display:none!important}.legal-document{max-width:900px;margin:auto}.legal-document h2{font-size:25px;margin-top:36px}.legal-document p,.legal-document li{font-size:17px;line-height:1.95}.legal-document a:not(.button){color:#247e89;text-decoration:underline}.business-table{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--line);margin-block:25px}.business-table dt,.business-table dd{padding:18px 12px;margin:0;border-bottom:1px solid var(--line);overflow-wrap:anywhere;white-space:pre-wrap}.business-table dt{font-weight:700}.review-actions{display:flex;gap:12px;flex-wrap:wrap}.review-actions .button{font-size:16px;padding:14px 20px}.footer>div{flex-wrap:wrap;gap:12px 22px}.footer>div a{font-size:13px}#inquiry[hidden]{display:none!important}#contact-review h2{font-size:26px}@media(max-width:620px){.legal-document h2{font-size:22px}.legal-document p,.legal-document li{font-size:15px}.business-table{grid-template-columns:1fr}.business-table dt{padding-bottom:0;border-bottom:0}.business-table dd{padding-top:8px}.footer>div{gap:12px 18px}.footer>div a{font-size:12px}}
 
 .editor-status{padding:17px;background:#edf8f7;border-radius:12px}.editor-status.error{background:#fff0ec;color:#963d34}.editor-layout{display:grid;grid-template-columns:280px 1fr;gap:35px}.editor-layout aside{position:sticky;top:20px;align-self:start}.editor-layout select,.editor-layout input:not([type=checkbox]),.editor-layout textarea{display:block;width:100%;font:inherit;font-size:16px;color:var(--ink);padding:12px;margin-top:8px;border:1px solid var(--line);border-radius:10px;background:white}.editor-layout label{display:block;font-weight:700;margin-bottom:22px}.editor-layout textarea{min-height:100px;resize:vertical}.editor-layout #editor-list{height:340px;margin-bottom:20px}.editor-layout .button{font-size:16px;padding:13px 20px}.editor-layout fieldset{border:1px solid var(--line);border-radius:12px;margin-bottom:22px;padding:18px}.editor-layout .editor-check{display:flex;gap:10px;font-size:15px;margin-block:12px}.editor-layout .editor-check input{width:auto}.editor-layout .review-actions{margin-top:25px}button:disabled{opacity:.65}@media(max-width:800px){.editor-layout{grid-template-columns:1fr}.editor-layout aside{position:static}.editor-layout #editor-list{height:180px}}
+
+.bpo-service-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin: 24px 0 12px;
+  border-radius: 16px;
+  background: #102d38;
+}
+.bpo-service-video .video-note {
+  margin-bottom: 24px;
+  font-size: 13px;
+}
