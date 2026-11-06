@@ -26,3 +26,26 @@
   margin-bottom: 24px;
   font-size: 13px;
 }
+
+.zoom-service-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin: 24px 0 12px;
+  border-radius: 16px;
+  background: #e7f5ff;
+}
+.zoom-service-video .video-note { font-size: 13px; margin-bottom: 24px; }
+.zoom-feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.zoom-feature-grid article { padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+.zoom-feature-grid h3 { margin: 0 0 12px; font-size: 21px; }
+.zoom-feature-grid p { margin: 0; }
+.zoom-phone-page .detail-section h2 { line-height: 1.5; }
+.zoom-phone-page ol li { margin-bottom: 18px; }
+.zoom-faq details { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.zoom-faq summary { cursor: pointer; font-weight: 700; }
+@media (max-width: 700px) {
+  .zoom-feature-grid { grid-template-columns: 1fr; }
+  .zoom-feature-grid article { padding: 20px; }
+}

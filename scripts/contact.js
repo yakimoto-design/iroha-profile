@@ -11,7 +11,8 @@ const params=new URLSearchParams(location.search);const id=params.get('service')
   ['line-demo','LINE受付デモのような動画について相談したいです。']
  ]);
  const detail=service.id==='service-video'?videoIntents.get(params.get('video')):null;
- field.value=(detail||service.name+'について相談したいです。')+'\n';
+ const zoomPhone=service.id==='cost-review'&&params.get('topic')==='zoom-phone';
+ field.value=(zoomPhone?'Zoom Phoneの導入・運用について相談したいです。':detail||service.name+'について相談したいです。')+'\n';
 }
 if(service){const topic=form.elements.topic;const match=[...topic.options].find(o=>o.value===service.name);if(match)topic.value=match.value;}
 const review=document.getElementById('contact-review'),back=document.getElementById('review-back'),send=document.getElementById('review-send'),status=document.getElementById('form-status');let confirmed=false;
