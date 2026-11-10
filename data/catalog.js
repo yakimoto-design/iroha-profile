@@ -293,6 +293,45 @@ window.IROHA_CATALOG = {
       "href": "https://irohacs.com/cost/",
       "status": "published",
       "source": "https://irohacs.com/cost/"
+    },
+    {
+      "id": "zoom-phone-pbx-comparison",
+      "title": "クラウドPBX13サービス比較｜特徴・料金の見方・失敗しない選び方",
+      "type": "article",
+      "typeLabel": "note記事",
+      "summary": "Zoom Phoneを含む13サービスの特徴と、用途に合わせた比較の軸、料金を比べるときの確認点をまとめています。",
+      "serviceIds": [
+        "cost-review"
+      ],
+      "href": "https://note.com/iroha_project/n/nfde495572695",
+      "status": "published",
+      "source": "https://note.com/iroha_project/n/nfde495572695"
+    },
+    {
+      "id": "zoom-phone-review-checklist",
+      "title": "会社の電話を見直す前に、整理しておきたい5つのこと",
+      "type": "article",
+      "typeLabel": "note記事",
+      "summary": "電話番号、利用者と端末、費用、必要な機能、切替の段取り。見積もり相談の前に整理したい5項目を確認できます。",
+      "serviceIds": [
+        "cost-review"
+      ],
+      "href": "https://note.com/iroha_project/n/nbea06ba97646",
+      "status": "published",
+      "source": "https://note.com/iroha_project/n/nbea06ba97646"
+    },
+    {
+      "id": "zoom-phone-cost-simulation",
+      "title": "コスト削減するなら、まずは電話の見直しから！Zoom Phoneのメリット・競合比較・費用シミュレーション",
+      "type": "article",
+      "typeLabel": "note記事",
+      "summary": "Zoom Phoneの特徴や競合との違いを紹介。100名規模の仮定に基づく試算と、社用携帯を残す場合の費用の考え方を解説します。",
+      "serviceIds": [
+        "cost-review"
+      ],
+      "href": "https://note.com/iroha_project/n/n7781488e137f",
+      "status": "published",
+      "source": "https://note.com/iroha_project/n/n7781488e137f"
     }
   ]
 };
