@@ -78,3 +78,14 @@
   .bpo-scope-grid article { padding: 22px; }
   .bpo-page-nav { gap: 12px 18px; }
 }
+
+.hero .home-service-heading {
+  font-size: clamp(32px, 4.3vw, 66px);
+  line-height: 1.42;
+  letter-spacing: -.03em;
+}
+.hero .hero-actions { flex-wrap: wrap; }
+@media (max-width: 620px) {
+  .hero .home-service-heading { font-size: 32px; }
+  .hero .hero-actions .button { font-size: 14px; }
+}

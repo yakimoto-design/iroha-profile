@@ -4,7 +4,7 @@ const data=window.IROHA_CATALOG||{services:[],contents:[],categories:[],site:{}}
 const services=data.services.filter(s=>s.status==='published');
 const contents=data.contents.filter(c=>c.status==='published');
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const safePath=v=> typeof v==='string' && /^(?:assets\/[a-zA-Z0-9_./-]+|(?:video|bpo)\/(?:#[a-zA-Z0-9_-]+)?|[a-zA-Z0-9_-]+\.html(?:[?#][a-zA-Z0-9_=&%#-]+)?)$/.test(v)&&!v.includes('..')?v:'';
+const safePath=v=> typeof v==='string' && /^(?:assets\/[a-zA-Z0-9_./-]+|(?:video|bpo|sales)\/(?:#[a-zA-Z0-9_-]+)?|[a-zA-Z0-9_-]+\.html(?:[?#][a-zA-Z0-9_=&%#-]+)?)$/.test(v)&&!v.includes('..')?v:'';
 const safeUrl=v=>{try{const u=new URL(v);return u.protocol==='https:'&&!u.username&&!u.password?u.href:''}catch{return safePath(v)}};
 const serviceUrl=s=>safeUrl(s.href)||`service.html?service=${encodeURIComponent(s.id)}`;
 const contentUrl=c=>safeUrl(c.href)||`content.html?item=${encodeURIComponent(c.id)}`;
@@ -37,12 +37,21 @@ const zoomPhoneVideo = `<section class="detail-section zoom-service-video" aria-
   </div>
 </section>`;
 const detail=document.getElementById('service-detail');
-if(detail){const params=new URLSearchParams(location.search),aliases={'sales-strategy':'sales-support','customer-reactivation':'sales-sfa'};const requested=params.get('service')||params.get('product');const s=services.find(s=>s.id===(aliases[requested]||requested));if(!s){detail.innerHTML='<h1 class="page-title">サービスが見つかりません</h1><p>現在ご案内しているサービスを、一覧からお選びください。</p><a class="button primary" href="index.html#services">サービス一覧へ</a>';return;}if (s.id === 'bpo') {
-  const target = new URL('bpo/' + location.hash, location.href);
+if(detail){const params=new URLSearchParams(location.search),aliases={'sales-strategy':'sales-support','customer-reactivation':'sales-sfa'};const requested=params.get('service')||params.get('product');const s=services.find(s=>s.id===(aliases[requested]||requested));if(!s){detail.innerHTML='<h1 class="page-title">サービスが見つかりません</h1><p>現在ご案内しているサービスを、一覧からお選びください。</p><a class="button primary" href="index.html#services">サービス一覧へ</a>';return;}const dedicatedPage = { bpo: 'bpo/', 'sales-support': 'sales/' }[s.id];
+if (dedicatedPage) {
+  const target = new URL(dedicatedPage + location.hash, location.href);
   document.querySelector('link[rel="canonical"]').href = target.origin + target.pathname;
   location.replace(target.href);
   return;
 }
+const canonical = document.querySelector('link[rel="canonical"]');
+if (canonical) {
+  const target = new URL('service.html', location.href);
+  target.searchParams.set('service', s.id);
+  canonical.href = target.href;
+}
+const description = document.querySelector('meta[name="description"]');
+if (description) description.content = s.summary;
 document.title=`${s.name} | irohaコンサルティング`;const related=contents.filter(c=>c.serviceIds.includes(s.id)),others=s.relatedServiceIds.map(id=>services.find(s=>s.id===id)).filter(Boolean);detail.innerHTML=`<section class="detail-hero">${cover(s)}<div><p class="eyebrow">IROHA SERVICES</p><span class="category">${esc(s.categoryLabel)}</span><h1>${esc(s.tagline)}</h1><p class="lead">${esc(s.summary)}</p><a class="button primary" href="${esc(s.id==='service-video'?serviceUrl(s):serviceContact(s))}">${s.id==='service-video'?'動画制作のLPを見る':'この仕事を相談する'} ↗</a></div></section><section class="detail-section"><h2>こんなお困りごとに</h2><ul>${s.audience.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></section><section class="detail-section"><p class="eyebrow">SUPPORT</p><h2>${esc(s.name)}で、お手伝いできること</h2><ul>${s.scope.map(t=>`<li>${esc(t)}</li>`).join('')}</ul><p class="terms">${esc(s.terms)}</p></section>${s.id==='cost-review'?zoomPhoneVideo:''}<section class="detail-section"><p class="eyebrow">RELATED CONTENTS</p><h2>事例・関連情報</h2>${related.length?`<div class="resource-grid">${related.map(resource).join('')}</div>`:'<p>関連する事例や活用情報を、今後ご紹介していきます。</p>'}</section>${others.length?`<section class="detail-section"><h2>こんな仕事も、irohaに。</h2><div class="product-grid">${others.map(card).join('')}</div></section>`:''}<section class="contact-band"><p class="eyebrow">LET’S TALK</p><h2>必要なところから、ご相談ください。</h2><p>${esc(s.terms)}</p><a class="button primary" href="${esc(serviceContact(s))}">相談してみる ↗</a></section>`;}
 const contentDetail=document.getElementById('content-detail');
 if(contentDetail){const c=contents.find(c=>c.id===new URLSearchParams(location.search).get('item'));if(!c){contentDetail.innerHTML='<h1 class="page-title">関連情報が見つかりません</h1><a class="button" href="resources.html">関連情報一覧へ</a>';return;}document.title=`${c.title} | irohaコンサルティング`;const related=c.serviceIds.map(id=>services.find(s=>s.id===id)).filter(Boolean);contentDetail.innerHTML=`<article class="content-article"><span class="category">${esc(c.typeLabel)}</span><h1 class="page-title">${esc(c.title)}</h1><p class="section-lead">${esc(c.summary)}</p>${(c.sections||[]).map(b=>`<section class="detail-section"><h2>${esc(b.heading)}</h2>${b.paragraphs.map(t=>`<p>${esc(t)}</p>`).join('')}</section>`).join('')}${safeUrl(c.href)?`<a class="button primary" href="${esc(safeUrl(c.href))}">詳しい内容を見る →</a>`:''}</article><section class="detail-section"><h2>関連するサービス</h2><div class="product-grid">${related.map(card).join('')}</div></section>`;}

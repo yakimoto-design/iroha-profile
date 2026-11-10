@@ -132,11 +132,11 @@ window.IROHA_CATALOG = {
       "categoryLabel": "営業支援",
       "name": "営業戦略・営業支援",
       "tagline": "売上につながる動きを、一緒に。",
-      "summary": "ターゲットや提案の進め方を見直し、営業の計画から実行までを支援します。",
+      "summary": "営業戦略、営業資料、リスト、トーク、管理シート。準備から実行・分析まで、必要な支援をひとつからご相談いただけます。",
       "image": "assets/illustrations/target.svg",
       "imageAlt": "営業戦略・営業支援のイメージ",
       "tone": "mint",
-      "href": "",
+      "href": "sales/",
       "status": "published",
       "audience": [
         "営業の進め方を見直したい",
