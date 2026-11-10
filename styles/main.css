@@ -49,3 +49,32 @@
   .zoom-feature-grid { grid-template-columns: 1fr; }
   .zoom-feature-grid article { padding: 20px; }
 }
+
+.bpo-page .page-title { font-size: clamp(30px, 3.7vw, 52px); line-height: 1.5; }
+.bpo-page .detail-section { scroll-margin-top: 24px; }
+.bpo-partner-note { margin-top: 18px; color: var(--muted); }
+.bpo-partner-note small { font-size: 13px; line-height: 1.8; }
+.bpo-page-nav { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-top: 32px; }
+.bpo-page-nav a { text-decoration: underline; text-underline-offset: 4px; font-size: 14px; }
+.bpo-scope-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 28px 0; }
+.bpo-scope-grid article { padding: 26px; border: 1px solid var(--line); background: #fff; border-radius: 16px; }
+.bpo-scope-grid h3 { margin: 0 0 14px; font-size: 22px; line-height: 1.6; }
+.bpo-scope-grid p { margin: 0; }
+.bpo-scope-grid .bpo-card-note { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 14px; }
+.bpo-table-wrap { overflow-x: auto; margin: 24px 0; }
+.bpo-table { width: 100%; min-width: 560px; border-collapse: collapse; text-align: left; font-size: 15px; }
+.bpo-table caption { text-align: left; padding: 0 0 14px; font-size: 14px; }
+.bpo-table th, .bpo-table td { padding: 18px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.bpo-table thead th { background: #eaf5f3; }
+.bpo-table tbody th { white-space: nowrap; }
+.bpo-flow { padding-left: 26px; }
+.bpo-flow li { padding: 14px 0 20px 8px; }
+.bpo-flow h3 { margin: 0 0 10px; font-size: 22px; }
+.bpo-flow p { margin: 0; }
+.bpo-faq details, .bpo-transcript { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.bpo-faq summary, .bpo-transcript summary { cursor: pointer; font-weight: 700; line-height: 1.7; }
+@media (max-width: 700px) {
+  .bpo-scope-grid { grid-template-columns: 1fr; gap: 18px; }
+  .bpo-scope-grid article { padding: 22px; }
+  .bpo-page-nav { gap: 12px 18px; }
+}

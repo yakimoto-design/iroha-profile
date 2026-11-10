@@ -194,11 +194,11 @@ window.IROHA_CATALOG = {
       "categoryLabel": "BPO・業務改善",
       "name": "BPO・業務整理",
       "tagline": "抱えている仕事を、整理する。",
-      "summary": "社内で担う仕事と外に任せる仕事を整理。必要に応じてパートナーと一緒に進めます。",
+      "summary": "経理・営業事務・人事総務など、日々の事務を任せられるところから。業務の棚卸しから運用・改善の相談まで対応します。",
       "image": "assets/illustrations/people.svg",
       "imageAlt": "BPO・業務整理のイメージ",
       "tone": "blue",
-      "href": "",
+      "href": "bpo/",
       "status": "published",
       "audience": [
         "日々の業務で手が足りない",
@@ -212,7 +212,7 @@ window.IROHA_CATALOG = {
         "sales-sfa",
         "cost-review"
       ],
-      "source": "https://irohacs.com/",
+      "source": "https://irohacs.com/bpo/",
       "terms": "対応範囲・費用・納期は、ご相談内容に合わせて事前に確認します。",
       "payment": {
         "enabled": false,
